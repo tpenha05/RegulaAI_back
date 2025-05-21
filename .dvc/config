@@ -1,0 +1,4 @@
+[core]
+    remote = shared-remote
+['remote "shared-remote"']
+    url = .
