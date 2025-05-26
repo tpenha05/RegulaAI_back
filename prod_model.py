@@ -65,8 +65,8 @@ df["BasePolicy"] = df["BasePolicy"].map(base_policy_labels)
 df = df[(df["Age"] != 0) & (df["AgeOfPolicyHolder"] != 0)]
 
 onehot_cols = [
+    "Age",
     "Make",
-    "MonthClaimed",
     "MaritalStatus",
     "PolicyType",
     "VehicleCategory",
@@ -76,10 +76,7 @@ onehot_cols = [
     "Days_Policy_Claim",
     "PastNumberOfClaims",
     "AgeOfPolicyHolder",
-    "NumberOfSuppliments",
-    "AddressChange_Claim",
-    "NumberOfCars",
-    "Year",
+    "NumberOfCars"
 ]
 df = pd.get_dummies(df, columns=onehot_cols, dtype=int)
 
@@ -90,6 +87,10 @@ useless_cols = [
     "DayOfWeekClaimed",
     "WeekOfMonthClaimed",
     "PolicyNumber",
+    "MonthClaimed",
+    "NumberOfSuppliments",
+    "AddressChange_Claim",
+    "Year"
 ]
 df.drop(columns=useless_cols, inplace=True)
 
